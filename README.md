@@ -1,7 +1,7 @@
 # pfsense-elasticsearch
 Files needed to send pfsense log files into Elasticsearch
 
-###Areas of the files that might require customizing:
+### Areas of the files that might require customizing:
 
 *logstash.conf*
 
