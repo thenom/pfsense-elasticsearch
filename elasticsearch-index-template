@@ -1,0 +1,74 @@
+{
+  "order": 0,
+  "index_patterns": [
+    "syslog-pfsense-*"
+  ],
+  "settings": {
+    "index": {
+      "number_of_shards": "1"
+    }
+  },
+  "mappings": {
+    "doc": {
+      "dynamic_templates": [
+        {
+          "integers": {
+            "match_mapping_type": "long",
+            "mapping": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "strings": {
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "keyword"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "geoip": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "geo_point"
+            }
+          }
+        },
+        "src_ip": {
+          "type": "ip"
+        },
+        "dest_ip": {
+          "type": "ip"
+        },
+        "data_length": {
+          "type": "integer"
+        },
+        "length": {
+          "type": "integer"
+        },
+        "geoip.ip": {
+          "type": "ip"
+        },
+        "proto_id": {
+          "type": "integer"
+        },
+        "rule": {
+          "type": "integer"
+        },
+        "source_port": {
+          "type": "integer"
+        },
+        "dest_port": {
+          "type": "integer"
+        },
+        "ttl": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "aliases": {}
+}
